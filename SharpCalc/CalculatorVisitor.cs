@@ -1,7 +1,7 @@
 ﻿using Aesky.Calc.Parser;
-using ANTLR_Sample.DataTypes;
+using SharpCalc.DataTypes;
 
-namespace ANTLR_Sample
+namespace SharpCalc
 {
     internal class CalculatorVisitor : CalculatorBaseVisitor<IDataType>
     {
@@ -21,12 +21,12 @@ namespace ANTLR_Sample
 
         public override IDataType VisitFloat(CalculatorParser.FloatContext context)
         {
-            return new Float() { Value = float.Parse(context.FLOAT().GetText())};
+            return new Float {Value = float.Parse(context.FLOAT().GetText())};
         }
 
         public override IDataType VisitInt(CalculatorParser.IntContext context)
         {
-            return new Float() { Value = int.Parse(context.INT().GetText()) };
+            return new Float {Value = int.Parse(context.INT().GetText())};
         }
 
         public override IDataType VisitParens(CalculatorParser.ParensContext context)
