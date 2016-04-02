@@ -1,4 +1,6 @@
-﻿namespace SharpCalc.DataTypes
+﻿using System;
+
+namespace SharpCalc.DataTypes
 {
     internal class Float : IDataType
     {
@@ -49,6 +51,36 @@
         public override string ValueAsString()
         {
             return Value.ToString();
+        }
+
+        public override IDataType Or(IDataType operand2)
+        {
+            throw new InvalidOperationException();
+        }
+
+        public override IDataType BiDirectional(IDataType operand2)
+        {
+            throw new InvalidOperationException();
+        }
+
+        public override IDataType Implication(IDataType operand2)
+        {
+            throw new InvalidOperationException();
+        }
+
+        public override IDataType And(IDataType operand2)
+        {
+            throw new InvalidOperationException();
+        }
+
+        public override IDataType Not()
+        {
+            throw new InvalidOperationException();
+        }
+
+        public override IDataType Negation()
+        {
+            return new Float { Value = (-1) * Value };
         }
     }
 }

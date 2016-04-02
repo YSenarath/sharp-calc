@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CalculatorVisitor.cs" />
+    <Compile Include="DataTypes\Boolean.cs" />
     <Compile Include="DataTypes\Float.cs" />
     <Compile Include="DataTypes\DataType.cs" />
     <Compile Include="DataTypes\IDataType.cs" />

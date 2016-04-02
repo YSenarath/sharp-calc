@@ -3,6 +3,7 @@
     public enum DatatypeType
     {
         Integer,
-        Float
+        Float,
+        Boolean
     }
 }

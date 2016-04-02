@@ -1,10 +1,12 @@
-﻿namespace SharpCalc.DataTypes
+﻿using System;
+
+namespace SharpCalc.DataTypes
 {
     internal class Integer : IDataType
     {
         public Integer()
         {
-            type = DatatypeType.Float;
+            type = DatatypeType.Integer;
         }
 
         public int Value { get; set; }
@@ -48,6 +50,36 @@
         public override string ValueAsString()
         {
             return Value.ToString();
+        }
+
+        public override IDataType Or(IDataType operand2)
+        {
+            throw new InvalidOperationException();
+        }
+
+        public override IDataType BiDirectional(IDataType operand2)
+        {
+            throw new InvalidOperationException();
+        }
+
+        public override IDataType Implication(IDataType operand2)
+        {
+            throw new InvalidOperationException();
+        }
+
+        public override IDataType And(IDataType operand2)
+        {
+            throw new InvalidOperationException();
+        }
+
+        public override IDataType Not()
+        {
+            throw new InvalidOperationException();
+        }
+
+        public override IDataType Negation()
+        {
+            return new Integer() { Value = (-1) * Value };
         }
     }
 }

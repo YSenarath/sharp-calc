@@ -21,7 +21,7 @@ namespace SharpCalc
             var tree = parser.prog();
             var visitor = new CalculatorVisitor();
             var result = visitor.Visit(tree);
-            if (result == null) throw new Exception("Unable to visit nodes.");
+            if (result == null) throw new ArithmeticException("Exception: Unable to visit nodes.");
             return visitor.Visit(tree).ValueAsString();
         }
 

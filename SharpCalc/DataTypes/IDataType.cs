@@ -1,6 +1,6 @@
 ﻿namespace SharpCalc.DataTypes
 {
-    internal abstract class IDataType
+    public abstract class IDataType
     {
         public DatatypeType type;
 
@@ -33,5 +33,17 @@
         public abstract IDataType Divide(IDataType operand2);
 
         public abstract string ValueAsString();
+
+        public abstract IDataType Or(IDataType operand2);
+
+        public abstract IDataType BiDirectional(IDataType operand2);
+
+        public abstract IDataType Implication(IDataType operand2);
+
+        public abstract IDataType And(IDataType operand2);
+
+        public abstract IDataType Not();
+
+        public abstract IDataType Negation();
     }
 }
