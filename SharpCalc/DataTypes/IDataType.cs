@@ -1,4 +1,6 @@
-﻿namespace SharpCalc.DataTypes
+﻿using Aesky.Calc.Parser;
+
+namespace SharpCalc.DataTypes
 {
     public abstract class IDataType
     {
@@ -37,6 +39,8 @@
         public abstract IDataType Or(IDataType operand2);
 
         public abstract IDataType BiDirectional(IDataType operand2);
+
+        internal abstract IDataType Compare(IDataType right, int type);
 
         public abstract IDataType Implication(IDataType operand2);
 

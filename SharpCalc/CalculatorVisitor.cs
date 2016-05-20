@@ -29,6 +29,13 @@ namespace SharpCalc
             return new Integer() {Value = int.Parse(context.INT().GetText())};
         }
 
+        public override IDataType VisitComparator(CalculatorParser.ComparatorContext context)
+        {
+            var left = Visit(context.expr(0));
+            var right = Visit(context.expr(1));
+            return left.Compare(right, context.op.Type);
+        }
+
         public override IDataType VisitParens(CalculatorParser.ParensContext context)
         {
             return Visit(context.expr());

@@ -12,7 +12,7 @@ grammar Calculator;
 }
  
 /*
- * Parser Rules
+ * Nonterminals
  */
  
 prog: expr+ ;
@@ -20,12 +20,12 @@ prog: expr+ ;
 expr : '(' '-' expr ')'  # Negation
 	 | expr op=('*'|'/') expr   # MulDiv
      | expr op=('+'|'-') expr   # AddSub
+     | expr op=('>'|'<'|'<='|'>='|'==') expr   # Comparator
      | 'not' expr   # Not
      | expr 'and' expr   # And
      | expr 'or' expr   # Or
      | expr '=>' expr   # Implication
      | expr '<=>' expr   # Bidirectional
-     | expr op=('+'|'-') expr   # AddSub
 	 | datatype				# dtype
      | '(' expr ')'         # parens
      ;
@@ -36,7 +36,7 @@ datatype  : INT # int
 	;
 
 /*
- * Lexer Rules
+ * Terminals
  */
 BOOLEAN: ('t'|'T'|'f'|'F'|'true'|'false');
 INT : [0-9]+;
@@ -45,5 +45,10 @@ MUL : '*';
 DIV : '/';
 ADD : '+';
 SUB : '-';
+LESSTHAN : '<';
+GRATERTHAN : '>';
+GRATERTHANOREQUAL : '>=';
+LESSTHANOREQUAL : '<=';
+EQUAL : '==';
 WS  : (' ' | '\r' | '\n') -> channel(HIDDEN)
     ;

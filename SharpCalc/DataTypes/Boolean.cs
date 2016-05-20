@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace SharpCalc.DataTypes
 {
@@ -49,6 +46,11 @@ namespace SharpCalc.DataTypes
         {
             if (operand2.type != DatatypeType.Boolean) throw new ArithmeticException();
             return new Boolean() { Value = (!Value || ((Boolean)operand2).Value) && (Value || !((Boolean)operand2).Value) };
+        }
+
+        internal override IDataType Compare(IDataType right, int type)
+        {
+            throw new InvalidOperationException();
         }
 
         public override IDataType Implication(IDataType operand2)
